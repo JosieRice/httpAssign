@@ -37,7 +37,7 @@ https.get(requestOptions, function (response) {
       // console.log("Buffered Chuck: ", buffer + "\n");
     // }
     console.log("Buffered Chuck: ", buffer + "\n");
-    return data;
+    // return data;
     // console.log('Chunk Received. Length:', data + '\n');
   });
 
