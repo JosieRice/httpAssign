@@ -33,6 +33,10 @@ https.get(requestOptions, function (response) {
     console.log('Chunk Received. Length:', data + '\n');
   });
 
+    response.on('error', function () {
+    console.log("There has been a problem, Sir.");
+  });
+
   // the callback is invoked when all of the data has been received
   // (the `end` of the stream)
   response.on('end', function() {
