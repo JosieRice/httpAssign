@@ -1,8 +1,8 @@
 var https = require('https');
 
-function getAndPrintHTML (options) {
+function getHTML (options, callback) {
 
-// the first parameter of https.get must match the parameter of the function above
+  // the first parameter of https.get must match the parameter of the function above
   https.get(options, function (response) {
 
   // set encoding of received data to UTF-8
@@ -17,9 +17,8 @@ function getAndPrintHTML (options) {
     // adds a chunk of data to the buffer variable, piece by piece
     buffer += data;
 
-    // prints out the result of things being added to buffer variable
-    console.log("Buffered Chuck: ", buffer + "\n");
-
+    // prints based on the callback function passed as an argument, so more modular
+    callback(data);
   });
 
   // prints a polite error message if there is a problem.
@@ -35,16 +34,24 @@ function getAndPrintHTML (options) {
 
   });
 
+  // callback(data);
+
+
 }
+
+function printHTML (html) {
+  console.log("You are Printing: " + html);
+}
+
 
 var requestOptions = {
   host: 'sytantris.github.io',
-  path: '/http-examples/step3.html'
+  path: '/http-examples/step4.html'
 };
 
 
-
-// calling the new function by passing an argument into it, making it more variable.
-getAndPrintHTML(requestOptions);
+// calling the new function by passing two arguments into it, the requested object
+// and a function to print the results, making it yet more modular
+getHTML(requestOptions, printHTML);
 
 
