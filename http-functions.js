@@ -1,6 +1,9 @@
 var https = require('https');
 
-function getHTML (options, callback) {
+
+module.exports = function getHTML (options, callback) {
+
+  var https = require('https');
 
   // the first parameter of https.get must match the parameter of the function above
   https.get(options, function (response) {
@@ -34,24 +37,10 @@ function getHTML (options, callback) {
 
   });
 
-  // callback(data);
-
-
 }
 
-function printHTML (html) {
-  console.log("You are Printing: " + html);
-}
-
-
-var requestOptions = {
-  host: 'sytantris.github.io',
-  path: '/http-examples/step4.html'
-};
-
-
-// calling the new function by passing two arguments into it, the requested object
-// and a function to print the results, making it yet more modular
-getHTML(requestOptions, printHTML);
+// function printHTML (html) {
+//   console.log("You are Printing: " + html);
+// }
 
 
