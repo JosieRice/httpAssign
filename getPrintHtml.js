@@ -33,7 +33,7 @@ https.get(requestOptions, function (response) {
   response.on('data', function (data) {
     var buffer = "";
     // for (var i = 0; i < 1; i++) {
-      buffer += data;
+    buffer += data;
       // console.log("Buffered Chuck: ", buffer + "\n");
     // }
     console.log("Buffered Chuck: ", buffer + "\n");
